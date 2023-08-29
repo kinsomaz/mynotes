@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
               } else {
                 print('You need to verify your email first');
               }
-              return const Text('Done');
+              return const Text('Dones');
             default:
               return const Text('Loading...');
           }
