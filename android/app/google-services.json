@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "754918591290",
+    "project_id": "mynotes-66ff6",
+    "storage_bucket": "mynotes-66ff6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754918591290:android:dfb3faec0cdf6e6a79de03",
+        "android_client_info": {
+          "package_name": "com.samad.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754918591290-sl0nii4hpms62099d1gem6lmr05vlhuo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDog6-wbjp5ZWP9rAs4GnOxGeMs4xyAxIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754918591290-sl0nii4hpms62099d1gem6lmr05vlhuo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
