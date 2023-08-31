@@ -20,6 +20,7 @@ void main() {
       routes: <String, Widget Function(BuildContext)>{
         'login': (context) => const LoginView(),
         'register': (context) => const RegisterView(),
+        'notes': (context) => const NotesView(),
       },
     ),
   );
