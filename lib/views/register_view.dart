@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer' as devtools show log;
 
 import 'package:mynotes/constants/routes.dart';
+import 'package:mynotes/utilities/show_error_dialog.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -64,15 +64,41 @@ class _RegisterViewState extends State<RegisterView> {
                   email: email,
                   password: password,
                 );
-                devtools.log(userCredential.toString());
+                final user = FirebaseAuth.instance.currentUser;
+                await user?.sendEmailVerification();
+                Navigator.of(context).pushNamed(verifyEmailRoute);
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'weak-password') {
-                  devtools.log(e.message.toString());
+                  // ignore: use_build_context_synchronously
+                  await showErrorDialog(
+                    context,
+                    'Weak-password',
+                  );
                 } else if (e.code == 'email-already-in-use') {
-                  devtools.log(e.message.toString());
+                  // ignore: use_build_context_synchronously
+                  await showErrorDialog(
+                    context,
+                    'Email already in use',
+                  );
                 } else if (e.code == 'invalid-email') {
-                  devtools.log(e.message.toString());
+                  // ignore: use_build_context_synchronously
+                  await showErrorDialog(
+                    context,
+                    'This is an invalid email address',
+                  );
+                } else {
+                  // ignore: use_build_context_synchronously
+                  await showErrorDialog(
+                    context,
+                    'Error: ${e.code}',
+                  );
                 }
+              } catch (e) {
+                // ignore: use_build_context_synchronously
+                await showErrorDialog(
+                  context,
+                  e.toString(),
+                );
               }
             },
             child: const Text('Register'),
