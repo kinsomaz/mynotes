@@ -8,12 +8,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       : super(const AuthStateUninitialized(isLoading: true)) {
     on<AuthEventShouldRegister>(
       (event, emit) {
-        emit(
-          const AuthStateRegistering(
-            exception: null,
-            isLoading: false,
-          ),
-        );
+        emit(const AuthStateRegistering(
+          exception: null,
+          isLoading: false,
+        ));
       },
     );
     // forgot password
