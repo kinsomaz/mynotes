@@ -36,9 +36,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
           if (state.hasSentEmail) {
             _controller.clear();
             await showPasswordResetSentDialog(context);
-          }
-          if (state.exception != null) {
-            // ignore: use_build_context_synchronously
+          } else if (state.exception != null) {
             await showErrorDialog(
               context,
               'We could not process your request. Please make sure you are a registered user',
